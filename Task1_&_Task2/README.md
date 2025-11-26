@@ -1,6 +1,6 @@
 Task 1 & Task 2 – Medical Notes Digitization, Structuring & Summarization
 
-This module implements Task 1 and Task 2 from the “AI Developer Assessment” using Python, Gemini OCR, and ChromaDB.
+This module implements Task 1 and Task 2 from the AI Developer Assessment using Python, Gemini OCR, and ChromaDB.
 
 It provides:
 
@@ -24,7 +24,8 @@ Task1_&_Task2/
 ├── search_api.py              # FastAPI semantic search API
 │
 ├── requirements.txt
-├──notes             #Contain example images with prescription including handwritten and real medical transcription
+├── notes/                     # Contains example handwritten & real medical notes
+│
 ├── outputs/
 │   ├── raw/                   # OCR raw text
 │   ├── clean/                 # Structured JSON (Task-1)
@@ -46,7 +47,7 @@ source venv/bin/activate
 Step 3 — Install dependencies
 pip install -r requirements.txt
 
-Example requirements.txt (recommended):
+Recommended requirements.txt
 fastapi
 uvicorn
 chromadb
@@ -55,50 +56,44 @@ google-generativeai
 python-multipart
 
 
-✔ You do NOT need AWS Textract or GCP Document  since Gemini OCR is Used.
+✔ AWS Textract / GCP Document AI not required — Gemini OCR is used.
 
 🔑 3. Configure Gemini API Key
-
 Set your API key:
-
 Windows PowerShell:
 setx GEMINI_API_KEY "your_key_here"
 
 Linux/Mac:
 export GEMINI_API_KEY="your_key_here"
 
-
-Check:
-
-echo %GEMINI_API_KEY%   (Windows)
-echo $GEMINI_API_KEY    (Linux/Mac)
+Verify:
+echo %GEMINI_API_KEY%     # Windows
+echo $GEMINI_API_KEY      # Linux/Mac
 
 📤 4. Upload Notes & Run Task-1 and Task-2 Processing
 
-Put JPG / PNG / PDF files inside a folder, e.g.:
+Place JPG / PNG / PDF files inside the notes/ folder:
 
 notes/
    94.jpg
    98.jpg
    981.jpg
 
-
-Then run:
-
+Run OCR + Structuring + Summary:
 python gemini_ocr_improve.py notes/
 
 
-This automatically creates:
+This automatically generates:
 
 📁 outputs/raw/
 
-Raw OCR text extracted by Gemini
+Raw OCR text extracted via Gemini
 
 📁 outputs/clean/
 
 Structured JSON containing:
 
-patient info
+patient
 
 doctor
 
@@ -106,11 +101,11 @@ diagnosis
 
 prescriptions
 
-cleaned OCR text
+cleaned_text
 
 📁 outputs/task2/
 
-Task-2 summary JSON containing:
+Task-2 summary JSON:
 
 Patient
 
@@ -122,35 +117,29 @@ Follow-up
 
 ✔ This completes Task 1 & Task 2.
 
-📚 5. Index the Task-1 JSON into ChromaDB
-
-Run:
-
+📚 5. Index Task-1 JSON into ChromaDB
 python chroma_index.py --folder outputs/clean
 
 
-This creates:
+This creates the vector store:
 
 /chroma_db
 
-
-and indexes every JSON file for semantic search.
-
 🌐 6. Run the Search API (FastAPI)
 
-Start API server:
+Start the API server:
 
 uvicorn search_api:app --reload
 
 
-You should see:
+Expected message:
 
 INFO:     Application startup complete.
 
 🔍 7. How to Query the API
-✔ Option A — Browser (no frontend, no linking)
+✔ Option A — Web Browser (Swagger UI)
 
-Use FastAPI Swagger UI:
+Open:
 
 http://127.0.0.1:8000/docs
 
@@ -163,37 +152,41 @@ Find GET /search
 
 Click Try It Out
 
-Enter search query:
+Enter query:
 
 fever
 
 
 Click Execute
 
-✔ Option B — Query via URL
-
-Direct URL:
-
+✔ Option B — Direct URL
 http://127.0.0.1:8000/search?q=fever
 
-✔ Option C — Query via cURL
+✔ Option C — cURL
 curl "http://127.0.0.1:8000/search?q=fever"
 
 🎯 8. How This Module Fulfills All Assessment Requirements
-✅ Task 1 Requirements
+✔ Task 1 Requirements
 
-✔ OCR extraction using LLM (Gemini OCR allowed)
-✔ Clean structured JSON output
-✔ Storage in vector DB (ChromaDB)
-✔ Search API via FastAPI
-✔ Demonstration with /search?q=...
-✔ Working example outputs in outputs/clean/
+OCR extraction using LLM (Gemini OCR allowed)
 
-✅ Task 2 Requirements
+Clean structured JSON output
 
-✔ Uses a free-tier LLM (Gemini)
-✔ Batch processing of multiple notes (directory support)
-✔ Produces JSON with fields:
+Storage in Chroma vector DB
+
+Search API via FastAPI
+
+/search?q=... demonstration
+
+Example outputs in outputs/clean/
+
+✔ Task 2 Requirements
+
+Uses a free-tier LLM (Gemini)
+
+Batch processing of multiple notes
+
+Outputs JSON with:
 
 Patient
 
@@ -203,9 +196,11 @@ Treatment
 
 Follow-up
 
-✔ Fully automated end-to-end pipeline
-✔ Summary outputs stored in outputs/task2/
-✔ Consistent schema for all notes
+Fully automated pipeline
+
+Summary files stored in outputs/task2/
+
+Consistent schema across all inputs
 
 📝 9. Example Summary Output (Task-2)
 {
@@ -229,6 +224,6 @@ Then open:
 
 http://127.0.0.1:8000/docs
 
-🎉 You’re Done!
+🎉 **You’re Done!
 
-Task 1 & Task 2 are complete, fully functional, reproducible, and meet every requirement of the assessment.
+Task 1 & Task 2 are fully functional, reproducible, and meet all assessment requirements.**
