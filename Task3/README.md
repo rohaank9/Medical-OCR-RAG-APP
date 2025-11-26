@@ -147,20 +147,73 @@ Features include:
 - Auto-indexing into ChromaDB  
 - Ask medical questions (“pneumonia patients?”, “most frequent treatment?”, etc.)
 
----
+## 🧪 6. Sample Queries & Outputs (Required by Assessment)
 
-## 🧪 6. Sample Queries (Required by Assessment)
+These examples demonstrate the exact types of answers Task-3 must provide.
+
+---
 
 ### ✔ Diagnosis Query  
-**“Which patients had pneumonia?”**
+**Query:**
+```
+Which patients had pneumonia?
+```
 
-### ✔ Frequent Treatment Query  
-**“What treatment was prescribed most frequently?”**
-
-### ✔ Clinical QA  
-**“What is the diagnosis for the patient in 94.jpg?”**
+**Example Output:**
+```json
+{
+  "query_type": "diagnosis_lookup",
+  "diagnosis": "pneumonia",
+  "patients": [
+    "Rohan Singh",
+    "Aisha Khan"
+  ]
+}
+```
 
 ---
+
+### ✔ Frequent Treatment Query  
+**Query:**
+```
+What treatment was prescribed most frequently?
+```
+
+**Example Output:**
+```json
+{
+  "query_type": "treatment_frequency",
+  "most_frequent_treatment": "Remdesivir 200mg IV",
+  "count": 3
+}
+```
+
+---
+
+### ✔ Clinical QA  
+**Query:**
+```
+What is the diagnosis for the patient in 94.jpg?
+```
+
+**Example Output:**
+```json
+{
+  "query_type": "context_qa",
+  "answer": "The patient in 94.jpg is diagnosed with viral fever.",
+  "sources": ["94.jpg"]
+}
+```
+
+---
+
+These outputs match the actual RAG workflow:
+
+- Retrieve relevant notes from ChromaDB  
+- LLM (Gemini 2.5 Flash) performs reasoning  
+- Return structured JSON exactly as required  
+
+
 
 ## 🎯 7. How Task-3 Requirements Are Fulfilled
 
