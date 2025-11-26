@@ -16,7 +16,7 @@ Each task is isolated in its own folder and can be executed independently.
 # 📦 Repository Structure
 
 ```
-IntraIntel_Assessment/
+Medical-OCR-RAG-APP
 │
 ├── Task1_&_Task2/
 │     ├── gemini_ocr_improve.py
