@@ -186,9 +186,7 @@ Use **Gemini OCR (Gemini 2.5 Flash Vision)**.
 
 ## 🤖 2. Why Not LangChain or LlamaIndex?
 
-Assessment says:
 
-> “Use LangChain **or** Python”
 
 LangChain not used because:
 - Adds complexity  
@@ -342,9 +340,3 @@ http://localhost:8001
 - Each module is documented, reproducible, and independently testable  
 - Docker deployment fulfills Task-4 without needing AWS/GCP  
 
-If you need:
-- A final submission ZIP  
-- A video demo script  
-- Repo review  
-
-Just ask!
