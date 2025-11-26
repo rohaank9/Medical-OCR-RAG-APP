@@ -16,7 +16,9 @@ Search API using FastAPI
 
 Web-based API testing through Swagger UI
 
-📁 1. Folder Structure
+## 📁 1. Folder Structure
+
+```
 Task1_&_Task2/
 │
 ├── gemini_ocr_improve.py      # Task-1 OCR + structured JSON + Task-2 summary JSON
@@ -32,6 +34,8 @@ Task1_&_Task2/
 │   ├── task2/                 # Summary JSON (Task-2)
 │
 └── README.md
+```
+
 
 🚀 2. Environment Setup
 Step 1 — Create virtual environment
@@ -227,3 +231,4 @@ http://127.0.0.1:8000/docs
 🎉 **You’re Done!
 
 Task 1 & Task 2 are fully functional, reproducible, and meet all assessment requirements.**
+
