@@ -1,0 +1,33 @@
+{
+  "patient": {
+    "name": "John Hubbard",
+    "age": null,
+    "gender": "Male"
+  },
+  "doctor": "Dr Jones",
+  "hospital": "CHUS Centre hospitalier universitaire de Sherbrooke",
+  "date": "Dec 1st 2017",
+  "diagnosis": "Coronary artery disease",
+  "prescriptions": [
+    {
+      "drug": "Acetaminophen",
+      "dose": "650mg",
+      "frequency": "q4h PRN",
+      "duration": null
+    },
+    {
+      "drug": "Aspirin",
+      "dose": "81mg",
+      "frequency": "daily",
+      "duration": null
+    },
+    {
+      "drug": "Clopidogrel",
+      "dose": "75mg",
+      "frequency": "daily",
+      "duration": null
+    }
+  ],
+  "cleaned_text": "CHUS Centre hospitalier universitaire de Sherbrooke\n819 346-1110\n\nH\u00f4tel Dieu\n580, rue Bowen Sud\nSherbrooke (Qc) J1G 2E8\n\nH\u00f4pital Fleurimont\n3001, 12e avenue Nord\nSherbrooke (Qc) J1H 5N4\n\nMme, M. John Hubbard\nDate : Dec 1st 2017\n\nR Acetaminophen 650mg\nq4h PRN\n\nTo treat coronary artery disease:\nAspirin 81mg PO daily\nClopidogrel 75mg PO daily\n\nDr Jones\n[signature/initials]\n\n0-6-11801\n\nne pas r\u00e9p\u00e9ter\nr\u00e9p\u00e9ter _____ fois",
+  "raw_text": "CHUS Centre hospitalier universitaire de Sherbrooke\n819 346-1110\n\nH\u00f4tel Dieu\n580, rue Bowen Sud\nSherbrooke (Qc) J1G 2E8\n\nH\u00f4pital Fleurimont\n3001, 12e avenue Nord\nSherbrooke (Qc) J1H 5N4\n\nMme, M. John Hubbard\nDate : Dec 1st 2017\n\nR Acetaminophen 650mg\n94h PRN\n\nTo treat coronary artery disease:\nAspirin 81mg PO daily\nClopidogrel 75mg PO daily\n\nDr Jones\n[signature/initials]\n\n0-6-11801\n\nne pas r\u00e9p\u00e9ter\nr\u00e9p\u00e9ter _____ fois"
+}
